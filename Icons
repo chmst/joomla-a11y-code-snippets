@@ -1,0 +1,33 @@
+
+
+How do we use Icons and make them accessible?
+
+Example 1) 
+
+Code: <span class="icon-plus"></span>
+
+This is probably wrong. 
+Only sighted users see the icon, blind users see nothing. 
+If the screenreader announces nothing, this could be ok for a decorative element. 
+If the screenreader announces somthing, then it is an issue.
+
+Example 2) Quckicons on the backend dashboard
+
+Code: <span class="icon-plus" aria-hidden="true"></span>
+
+This is correct if the icon is decorative only 
+AND if the meaning is obvious and world wide well-known. 
+
+Example 3) Legend at the bottom of permission table in com_users
+
+Code: <span class="icon-check" aria-hidden="true"></span><?php echo Text::_('COM_YOURTEXT_HERE'); ?>
+
+Not sure if this is correct. 
+Sighted users see an icon followed by an explanation which is visible and announced. 
+BUT: Blind users get an explanation for something what they cannot see. 
+
+Example 4) 
+
+Code: <span class="icon-check" aria-hidden="true"></span><span class="visibility: hidden"><?php echo Text::_('COM_YOURTEXT_HERE'); ?></span>
+
+Correct: An icon which is visible for sighted users and a text which is announced by screenreaders but is not visible. 
